@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -9,8 +10,12 @@ public class Browser {
         driver.get(url);
     }
 
+
     public static String title(){
         return driver.getTitle();
     }
 
+    public static void close() {
+        driver.close();
+    }
 }
