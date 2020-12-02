@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,6 +13,7 @@ public class PathPages {
     public void goTo(){
         Browser.goTo(url);
     }
+
     public void goToGoogleCloudPath(){
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[3]/div/a[1]"))).click();
         WebElement element = Browser.driver.findElement(By.xpath("//*[@id=\"pathContent\"]/div[1]/a/div"));
