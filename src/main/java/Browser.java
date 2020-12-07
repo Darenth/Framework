@@ -5,23 +5,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Browser {
 
-    static WebDriver driver = new ChromeDriver();
-    static WebDriverWait webDriverWait = new WebDriverWait(Browser.driver, 10);
+     WebDriver driver = new ChromeDriver();
+     WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
 
-    public static void goTo(String url) {
+    public void goTo(String url) {
         driver.get(url);
     }
 
-    public static void maximize() {
-        Browser.driver.manage().window().maximize();
+    public void maximize() {
+        driver.manage().window().maximize();
         System.out.println("Window is maximaze");
     }
 
-    public static String title() {
+    public  String title() {
         return driver.getTitle();
     }
 
-    public static void close() {
+    public  void close() {
         driver.close();
     }
 }

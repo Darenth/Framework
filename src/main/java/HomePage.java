@@ -1,38 +1,55 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.LoggerFactory;
+
+public class HomePage extends Page {//TODO
 
 
-import java.util.logging.Logger;
+    By acceptCookiesButton =By.cssSelector("div[class='_9f0v0 _jkrtd mpof_ki_s'] button[class='_13q9y _8hkto munh_56_m m7er_k4 m7er_56_m']");//TODO
+    //By acceptCookiesButton =By.xpath("/html/body/div[3]/div[7]/div/div[2]/div/div[2]/button[2]");//TODO
+    By healthCategory =By.cssSelector("div[data-box-name='departments'] div[data-group-id='departments_Zdrowie']");
+    By searchingBar =By.cssSelector("div[data-box-name='allegro.metrumHeader.search'] input[type='search']");
+    String url = "https://allegro.pl/";
+//    String itemIphone="iPhone 12 Pro 256GB PACYFIC POLSKA DYSTRYBUCJA 5G";
 
-public class HomePage {
+
+    public HomePage(WebDriver driver,WebDriverWait wait) {
+        super(driver,wait);
 
 
-    static String url = "https://allegro.pl/";
-    static String title = "Allegro - atrakcyjne ceny";// is it good idea to check sucess of moving to this page throught title?
-
-    public void goTo() {
-        Browser.goTo(url);
     }
 
 
 
-    public void acceptCookies() {
-        Browser.webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[3]/div[7]/div/div[2]/div/div[2]/button[2]"))).click();
+    public HomePage goTo( ) {
+        driver.get(url);
+        return this;
+    }
+
+    public void acceptCookies(){
+        wait.until(ExpectedConditions.presenceOfElementLocated(acceptCookiesButton)).click();
         System.out.println("The cookies are accepted");
-
     }
 
-    public void searchingField(String text) {
 
-        Browser.driver.findElement(By.xpath("/html/body/div[3]/div[2]/header/div/div/div[1]/div/form/input")).sendKeys(text + Keys.ENTER);
+
+    public HealthPage selectHealthCategoty() {
+        driver.findElement(healthCategory).click();
+        return new HealthPage(driver,wait);
     }
 
-    public boolean isAt() {
-        return Browser.title().equals(title);
+    public ListingPage typeIntoSearchingBar(String textForSearching) {
+        driver.findElement(searchingBar).sendKeys(textForSearching + Keys.ENTER);
+        return new ListingPage(driver,wait);
     }
+
+//    public boolean isAt() {
+//        return title().equals(title);
+//    }
 
 }
