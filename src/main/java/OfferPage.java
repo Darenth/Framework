@@ -10,7 +10,7 @@ public class OfferPage extends  Page{
 
 
     public void putGoodInBasket() {
-        driver.findElement(By.xpath("//a[@class='_13q9y _8tsq7 munh_56_s']")).click();
+        driver.findElement(By.xpath("//a[@class='_13q9y _8tsq7 munh_56_s']")).click();//
 
     }
 }

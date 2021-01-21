@@ -10,7 +10,7 @@ public class ListingPage extends Page {
     }
 
     public void selectElementByIndex(int i) {
-        System.out.println("int i ="+i);
+
         driver.findElement(By.xpath("(//div[@class='m7er_k4 _9c44d_3TzmE'])["+i+"]")).click();
     }
 

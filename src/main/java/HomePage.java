@@ -2,16 +2,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends Page {
 
 
-    By acceptCookiesButton =By.cssSelector("div[class='_9f0v0 _jkrtd mpof_ki_s'] button[class='_13q9y _8hkto munh_56_m m7er_k4 m7er_56_m']");//TODO
-    By healthCategory =By.cssSelector("div[data-box-name='departments'] div[data-group-id='departments_Zdrowie']");
+
+    By acceptCookiesButton =By.xpath("//button[text()='Ok, zgadzam się']");
     By searchingBar =By.cssSelector("div[data-box-name='allegro.metrumHeader.search'] input[type='search']");
     String url = "https://allegro.pl/";
 
@@ -32,10 +32,6 @@ public class HomePage extends Page {
     }
 
 
-//    public HealthPage selectHealthCategoty() {
-//        driver.findElement(healthCategory).click();
-//        return new HealthPage(driver,wait);
-//    }
 
     public ListingPage typeIntoSearchingBar(String textForSearching) {
         driver.findElement(searchingBar).sendKeys(textForSearching + Keys.ENTER);
