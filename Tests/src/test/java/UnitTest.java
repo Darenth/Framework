@@ -32,8 +32,7 @@ public class UnitTest {
         ListingPage listingPage = homePage.typeIntoSearchingBar(item);
         listingPage.selectElementByIndex(1);
         offerPage = new OfferPage(driver, wait);
-        offerPage.click("//button[@id='add-to-cart-button']");
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='_13q9y _8tsq7 munh_56_s']")));
+        offerPage.clickOnAddCardButtonAndWait();
         offerPage.putGoodInBasket();
         BasketPage basketPage = new BasketPage(driver, wait);
 
